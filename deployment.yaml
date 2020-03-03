@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: springmvc
+  name: springmvc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: springmvc
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        run: springmvc
+    spec:
+      containers:
+      - image: skamalj/amttogke:{{CF_SHORT_REVISION}}
+        name: springmvc
+        ports:
+        - containerPort: 8080
+        resources: {}
+status: {}

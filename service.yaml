@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    run: springmvc
+  name: springmvc-service
+spec:
+  ports:
+  - port: 8080
+    targetPort: 8080
+  selector:
+    run: springmvc
+  sessionAffinity: None
+  type: LoadBalancer
